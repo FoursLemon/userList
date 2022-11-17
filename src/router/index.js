@@ -1,14 +1,28 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+// 引入组件
+import UserList from '@/components/UserList'
+import UserDetail from '@/components/UserDetail'
 
 Vue.use(VueRouter)
 
+// 声明路由规则
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    redirect: 'users'
+  },
+  {
+    path: '/users',
+    name: 'users',
+    component: UserList
+  },
+  {
+    path: '/users/:id',
+    name: 'userDetail',
+    component: UserDetail,
+    props: true,
   },
   {
     path: '/about',
